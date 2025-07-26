@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gathering Lights Tech Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #333;
+        }
+        .section {
+            display: none; /* Hidden by default */
+        }
+        .section.active {
+            display: block; /* Show active section */
+        }
+        .nav-link {
+            cursor: pointer;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #4a5568; /* Darker grey on hover */
+            color: #fff;
+        }
+        .nav-link.active {
+            background-color: #3182ce; /* Blue for active link */
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #3182ce; /* Blue */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2c5282; /* Darker blue on hover */
+        }
+        /* Custom scrollbar for chat */
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- Header/Navigation Bar -->
+    <header class="bg-gray-800 text-white shadow-lg py-4">
+        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+            <div class="text-2xl font-bold mb-4 md:mb-0">
+                Gathering Lights Tech Hub
+            </div>
+            <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8">
+                <li><a class="nav-link active" data-section="home">Home</a></li>
+                <li><a class="nav-link" data-section="about">About Us</a></li>
+                <li><a class="nav-link" data-section="gallery">Photo Gallery</a></li>
+                <li><a class="nav-link" data-section="contact">Contact Us</a></li>
+                <li><a class="nav-link" data-section="chat">Help Chat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto p-6">
+        <!-- Home Section -->
+        <section id="home" class="section active bg-white rounded-lg shadow-md p-8 mb-8">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-6">Welcome to Gathering Lights Tech Hub</h1>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-center">
+                Empowering the future through innovation and technology. At Gathering Lights Tech Hub, we are dedicated to fostering a vibrant community of tech enthusiasts, developers, and entrepreneurs. We provide cutting-edge resources, training, and a collaborative environment to turn groundbreaking ideas into reality.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                <div class="text-center p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Our Mission</h3>
+                    <p class="text-gray-600">To illuminate pathways for technological advancement and empower individuals to innovate, create, and lead in the digital era.</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-lg shadow-sm">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-3">What We Offer</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Comprehensive Tech Training Programs</li>
+                        <li>Incubation for Startups</li>
+                        <li>Collaborative Workspace</li>
+                        <li>Networking Events & Workshops</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <button class="btn-primary">Learn More About Us</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section bg-white rounded-lg shadow-md p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">About Gathering Lights Tech Hub</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                Gathering Lights Tech Hub was founded with a clear vision: to be the beacon of technological innovation and education. We believe in the transformative power of technology and its ability to solve real-world problems and create new opportunities. Our hub is designed to be a nurturing ground for talent, where ideas are cultivated, skills are honed, and dreams are realized.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Vision</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        To be the leading tech hub, recognized globally for fostering innovation, producing skilled professionals, and contributing significantly to the digital economy.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Values</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Innovation: Constantly seeking new and better ways to do things.</li>
+                        <li>Collaboration: Believing in the power of working together.</li>
+                        <li>Excellence: Striving for the highest quality in everything we do.</li>
+                        <li>Empowerment: Equipping individuals with the tools and knowledge to succeed.</li>
+                        <li>Integrity: Operating with honesty and strong moral principles.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Team</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Team Member 1 -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://placehold.co/100x100/ADD8E6/000000?text=CEO" alt="Team Member 1" class="rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-semibold text-blue-700">John Doe</h4>
+                        <p class="text-gray-600">Chief Executive Officer</p>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="bg-green-50 p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://placehold.co/100x100/90EE90/000000?text=CTO" alt="Team Member 2" class="rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-semibold text-green-700">Jane Smith</h4>
+                        <p class="text-gray-600">Chief Technology Officer</p>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://placehold.co/100x100/D8BFD8/000000?text=Lead" alt="Team Member 3" class="rounded-full mx-auto mb-4">
+                        <h4 class="text-xl font-semibold text-purple-700">Peter Jones</h4>
+                        <p class="text-gray-600">Lead Developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="gallery" class="section bg-white rounded-lg shadow-md p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Our Photo Gallery</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                A glimpse into our vibrant community, state-of-the-art facilities, and exciting events.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400/FFD700/000000?text=Workshop+1" alt="Workshop 1" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-gray-50">
+                        <p class="text-gray-700 text-sm">Coding Workshop Session</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400/87CEEB/000000?text=Networking+Event" alt="Networking Event" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-gray-50">
+                        <p class="text-gray-700 text-sm">Annual Networking Event</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400/98FB98/000000?text=Co-working+Space" alt="Co-working Space" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-gray-50">
+                        <p class="text-gray-700 text-sm">Our Modern Co-working Space</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400/FF6347/000000?text=Hackathon" alt="Hackathon" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-gray-50">
+                        <p class="text-gray-700 text-sm">Exciting Hackathon Day</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400/DDA0DD/000000?text=Training+Session" alt="Training Session" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-gray-50">
+                        <p class="text-gray-700 text-sm">Hands-on Training Session</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400/F0E68C/000000?text=Mentorship" alt="Mentorship" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-gray-50">
+                        <p class="text-gray-700 text-sm">Mentorship Program in Action</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section bg-white rounded-lg shadow-md p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Contact Us</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                We'd love to hear from you! Reach out to us for inquiries, partnerships, or any questions.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Get in Touch</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="your@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Send Message</button>
+                    </form>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Details</h3>
+                    <p class="text-gray-700 mb-2"><strong>Address:</strong> 123 Tech Innovation Road, Accra, Ghana</p>
+                    <p class="text-gray-700 mb-2"><strong>Phone:</strong> +233 24 123 4567</p>
+                    <p class="text-gray-700 mb-2"><strong>Email:</strong> info@gatheringlightstech.com</p>
+                    <p class="text-gray-700 mb-2"><strong>Working Hours:</strong> Mon - Fri: 9:00 AM - 5:00 PM</p>
+                    <div class="mt-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Find Us on Map</h4>
+                        <!-- Placeholder for a map, e.g., Google Maps embed -->
+                        <div class="bg-gray-200 rounded-lg h-48 flex items-center justify-center text-gray-600">
+                            [Map Placeholder]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Chat Section -->
+        <section id="chat" class="section bg-white rounded-lg shadow-md p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Help Chat</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-center">
+                Need assistance? Chat with our virtual assistant.
+            </p>
+            <div class="flex flex-col h-[500px] border border-gray-300 rounded-lg overflow-hidden">
+                <!-- Chat Messages Display -->
+                <div id="chatMessages" class="chat-messages flex-grow p-4 overflow-y-auto bg-gray-50">
+                    <!-- Initial bot message -->
+                    <div class="flex justify-start mb-4">
+                        <div class="bg-blue-100 text-blue-800 p-3 rounded-lg max-w-[70%] shadow-sm">
+                            Hello! How can I assist you today regarding Gathering Lights Tech Hub?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input Area -->
+                <div class="p-4 border-t border-gray-300 bg-white flex items-center">
+                    <input type="text" id="chatInput" placeholder="Type your message..." class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button id="sendMessageBtn" class="ml-4 btn-primary flex-shrink-0">Send</button>
+                </div>
+            </div>
+            <!-- Loading indicator for chat -->
+            <div id="loadingIndicator" class="text-center text-gray-600 mt-4 hidden">
+                <svg class="animate-spin h-5 w-5 text-blue-500 inline-block mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Typing...
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto text-center px-4">
+            <p>&copy; 2024 Gathering Lights Tech Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendMessageBtn = document.getElementById('sendMessageBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+
+            // Function to show a specific section
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Event listeners for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const sectionId = e.target.dataset.section;
+                    showSection(sectionId);
+                });
+            });
+
+            // Initial display: show home section
+            showSection('home');
+
+            // Chat functionality
+            async function sendMessage() {
+                const userMessage = chatInput.value.trim();
+                if (userMessage === '') return;
+
+                // Add user message to chat
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'flex justify-end mb-4';
+                userMessageDiv.innerHTML = `<div class="bg-blue-500 text-white p-3 rounded-lg max-w-[70%] shadow-sm">${userMessage}</div>`;
+                chatMessages.appendChild(userMessageDiv);
+                chatInput.value = ''; // Clear input
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                loadingIndicator.classList.remove('hidden'); // Show loading indicator
+
+                try {
+                    // Call Gemini API
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Leave as-is for Canvas to provide
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    loadingIndicator.classList.add('hidden'); // Hide loading indicator
+
+                    let botResponseText = "Sorry, I couldn't get a response. Please try again.";
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        botResponseText = result.candidates[0].content.parts[0].text;
+                    }
+
+                    // Add bot message to chat
+                    const botMessageDiv = document.createElement('div');
+                    botMessageDiv.className = 'flex justify-start mb-4';
+                    botMessageDiv.innerHTML = `<div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[70%] shadow-sm">${botResponseText}</div>`;
+                    chatMessages.appendChild(botMessageDiv);
+
+                } catch (error) {
+                    console.error('Error fetching from Gemini API:', error);
+                    loadingIndicator.classList.add('hidden'); // Hide loading indicator on error
+                    const errorMessageDiv = document.createElement('div');
+                    errorMessageDiv.className = 'flex justify-start mb-4';
+                    errorMessageDiv.innerHTML = `<div class="bg-red-100 text-red-800 p-3 rounded-lg max-w-[70%] shadow-sm">Error: Could not connect to the chat service.</div>`;
+                    chatMessages.appendChild(errorMessageDiv);
+                } finally {
+                    // Scroll to bottom again after bot response
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }
+
+            sendMessageBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
